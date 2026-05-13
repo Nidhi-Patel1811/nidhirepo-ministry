@@ -1,0 +1,8 @@
+id,module,scenario,steps,expected_result,start_url,priority,tags
+ST-001,Background Check,Open Background Check,Given user is on dashboard|When user clicks on Background Checks menu|Then Background Check page should be displayed,User is redirected to Background Check page,,High,smoke
+ST-002,BG Manual Order,Open Manual Order,Given user is on Background Check page|When user clicks on New Manual Order button|Then Manual Order step-1 page should be displayed,User is redirected to Manual Order step-1,,High,smoke
+ST-003,BG Manual Order,Step-1 Selection,Given user is on Manual Order step-1 page|When user selects Background Check package|And user clicks Next button|Then Step-2 form should be displayed,User is redirected to Step-2 form,,High,smoke
+ST-004,BG Manual Order,Step-2 Form Entry,Given user is on Step-2 form page|When user enters first name as Nidhi|And user enters last name|And user fills required details|And user clicks Next button|Then Step-3 page should be displayed,User is redirected to Step-3,,High,smoke
+ST-005,BG Manual Order,Step-3 Verification,Given user is on Step-3 page|When user verifies details entered in Step-2|And user confirms information|And user clicks Next button|Then Step-4 review page should be displayed,User is redirected to Step-4 review,,High,smoke
+ST-006,BG Manual Order,Step-4 Review,Given user is on Step-4 review page|When user verifies all entered details|And user confirms agreement|And user clicks Submit button|Then order submission should be successful,Order is submitted successfully,,High,smoke
+ST-007,BG Manual Order,Order Completion,Given order is successfully submitted|When user clicks Done button|Then user should be redirected to Background Check dashboard,User lands on Background Check dashboard,,High,smoke

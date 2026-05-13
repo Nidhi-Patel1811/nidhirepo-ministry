@@ -1,0 +1,7 @@
+id,module,scenario,steps,expected_result,start_url,priority,tags,depends_on,data_setup,data_teardown,value
+ST-001,Login,Login with valid credentials,1. Enter valid username and password|2. Click Sign In button|3. Wait for dashboard to load,User is redirected to main dashboard,/admin/home,P0,auth;login,,,,
+ST-002,Login,Login with invalid credentials,1. Enter invalid username and wrong password|2. Click Login button|3. Wait for error message,Error message is displayed and user remains on login page,/user/login,P0,auth;negative,,,,
+ST-003,Login,Refresh the page,1.Refresh page,Page is refreshed,/admin/home,P0,auth;login,,,,
+ST-004,Login,Forgot password,1. Click Forgot Password? |2. Enter business email |3.Click Send button,Forgot password email is send,/account/forgot-password,P0,auth;forgot,,,,nidhi.patel+01@ministrybrands.com
+ST-005,Login,Forgot password,1. Click Back to login button,User is redirected to login page,/admin/home,P0,auth;login,,,,
+ST-006,Login,Validation,1. Keep Business email field blank |2.Keep Password field blank |3.Click Sign In button,User is displayed validation message,/admin/home,P0,auth;login,,,,
