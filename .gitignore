@@ -1,0 +1,3 @@
+inputs/smoke-testing/smoke-test-skill.env.json
+.tmp/smoke/
+outputs/smoke-test/

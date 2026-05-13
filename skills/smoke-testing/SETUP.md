@@ -205,7 +205,7 @@ Create `.github/inputs/smoke-testing/smoke-test-skill.env.json`:
     "defaultTimeoutMs": 10000,
     "screenshotOnPass": true,
     "screenshotOnFailure": true,
-    "outputDir": ".github/outputs/smoke-test/{runId}",
+    "outputDir": "outputs/smoke-test/{runId}",
     "reportTitle": "Post-Release Smoke Test Report"
   }
 }
@@ -242,7 +242,7 @@ echo '{"_readme":"Auto-maintained by Test Skills. Commit this file.","_version":
 # Add these lines to your .gitignore
 echo ".github/inputs/smoke-testing/smoke-test-skill.env.json" >> .gitignore
 echo ".tmp/smoke/" >> .gitignore
-echo ".github/outputs/smoke-test/" >> .gitignore
+echo "outputs/smoke-test/" >> .gitignore
 ```
 
 ### Step 6 — Add rules to `AGENTS.md`
@@ -272,7 +272,7 @@ Add this block to your project's `AGENTS.md` at the repo root:
 | `.github/inputs/smoke-testing/smoke-scenarios.csv` | ✅ Yes | Scenario definitions — no secrets |
 | `.github/inputs/smoke-testing/smoke-test-skill.env.json` | ❌ **No** | Contains credentials — gitignore |
 | `page-map.json` | ✅ Yes | Selector cache — no secrets, improves future runs |
-| `.github/outputs/smoke-test/` | ❌ No | Generated per run — gitignore |
+| `outputs/smoke-test/` | ❌ No | Generated per run — gitignore |
 | `.tmp/smoke/` | ❌ No | Temp files — deleted after run, gitignore |
 
 ---
@@ -354,7 +354,7 @@ Any of these will invoke the skill without needing `@smoke-test-skill`:
    - Parse scenarios from `.github/inputs/smoke-testing/smoke-scenarios.csv`
    - Display a run plan and ask for confirmation
    - Log in to the app and execute each scenario
-   - Generate `smoke-report.html` and `smoke-report.json` in `.github/outputs/smoke-test/{runId}/`
+  - Generate `smoke-report.html` and `smoke-report.json` in `outputs/smoke-test/{runId}/`
    - Display a pass/fail summary with release decision
 
 6. Open `smoke-report.html` in a browser to review results
@@ -421,7 +421,7 @@ The login form selector may have changed. Check `page-map.json` — if it has a 
 
 - Verify `screenshotOnPass: true` and `screenshotOnFailure: true` in env config
 - Check that the output directory was created before execution (Step 1 creates it)
-- On Windows, ensure paths use forward slashes in the config: `.github/outputs/smoke-test/{runId}`
+- On Windows, ensure paths use forward slashes in the config: `outputs/smoke-test/{runId}`
 
 ### ADO post fails: "Unauthorized"
 

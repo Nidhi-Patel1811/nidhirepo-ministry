@@ -58,7 +58,7 @@ Create `.github/inputs/smoke-testing/smoke-test-skill.env.json` (add to `.gitign
     "screenshotOnPass": true,
     "screenshotOnFailure": true,
     "headless": false,
-    "outputDir": ".github/outputs/smoke-test/{runId}",
+    "outputDir": "outputs/smoke-test/{runId}",
     "reportTitle": "Post-Release Smoke Test Report"
   }
 }
@@ -79,14 +79,14 @@ Create `.github/inputs/smoke-testing/smoke-test-skill.env.json` (add to `.gitign
 | `pat` | (Optional) ADO Personal Access Token | Leave blank if Azure CLI is already configured |
 | `stopOnFirstFailure` | Halt entire run on first failure | `false` recommended for full smoke coverage |
 | `screenshotOnPass` | Take screenshots during passing scenario steps | `true` recommended for first runs; set `false` to speed up large suites |
-| `outputDir` | Where results are saved | `.github/outputs/smoke-test/{runId}` (resolved at runtime) |
+| `outputDir` | Where results are saved | `outputs/smoke-test/{runId}` (resolved at runtime) |
 
 ### Step 0B — Gitignore
 
 ```bash
 echo ".github/inputs/smoke-testing/smoke-test-skill.env.json" >> .gitignore
 echo ".tmp/smoke/" >> .gitignore
-echo ".github/outputs/smoke-test/" >> .gitignore
+echo "outputs/smoke-test/" >> .gitignore
 ```
 
 ### Step 0C — Create page map (shared with UI test skill if both are used)
@@ -361,7 +361,7 @@ Display run plan summary:
     Checkout      6  (P0: 3, P1: 2, P2: 1)
 
   Est. duration: ~22 minutes
-  Output dir:    .github/outputs/smoke-test/smoke-20250515-1430/
+  Output dir:    outputs/smoke-test/smoke-20250515-1430/
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -674,7 +674,7 @@ Display the final summary:
     ST-004  Members › Edit member                   [P1]  ← blocked by ST-003
     ST-005  Members › Delete member                 [P1]  ← blocked by ST-003
 
-  Report: .github/outputs/smoke-test/smoke-20250515-1430/smoke-report.html
+  Report: outputs/smoke-test/smoke-20250515-1430/smoke-report.html
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -823,7 +823,7 @@ your-repo/
 │   └── smoke-scenarios.csv           ← your scenario source (commit)
 ├── AGENTS.md                          ← includes smoke test rules
 ├── .tmp/smoke/{runId}/                ← deleted after run (gitignored)
-└── .github/outputs/smoke-test/
+└── outputs/smoke-test/
     └── smoke-20250515-1430/
         ├── smoke-report.html          ← shareable report
         ├── smoke-report.json          ← machine-readable
@@ -841,7 +841,7 @@ your-repo/
                 └── ST-009-FAILED.png
 ```
 
-> **Neither `.tmp/smoke/` nor `.github/outputs/smoke-test/` should be committed.**
+> **Neither `.tmp/smoke/` nor `outputs/smoke-test/` should be committed.**
 > Only commit `page-map.json` and `.github/inputs/smoke-testing/smoke-scenarios.csv`.
 > Review passing specs from `{OUTPUT_DIR}/specs/` and copy to `tests/smoke/` before committing.
 
